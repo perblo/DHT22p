@@ -1,0 +1,31 @@
+#######################################
+# Syntax Coloring Map For DHT22p
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+DHT22p	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+read	KEYWORD2
+humidity	KEYWORD2
+temperature	KEYWORD2
+
+#######################################
+# Instances (KEYWORD2)
+#######################################
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+DHT_LIB_VERSION	LITERAL1
+DHTLIB_OK	LITERAL1
+DHTLIB_ERROR_CHECKSUM	LITERAL1
+DHTLIB_ERROR_TIMEOUT	LITERAL1
