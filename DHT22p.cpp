@@ -45,8 +45,12 @@ DHT22p_ERROR_t DHT22p::readData()
 		return rv;
 	}
 
+	// TEST CHECKSUM
+	uint8_t sum = bits[0] + bits[1] + bits[2] + bits[3];
+	if (bits[4] != sum) return DHT_ERROR_CHECKSUM;
+
 	// CONVERT AND STORE
-	humidity    = word(bits[0], bits[1]) * 0.1;
+	humidity    = int(word(bits[0], bits[1])) * 10;
 
 	int sign = 1;
 	if (bits[2] & 0x80) // negative temperature
@@ -54,11 +58,9 @@ DHT22p_ERROR_t DHT22p::readData()
 		bits[2] = bits[2] & 0x7F;
 		sign = -1;
 	}
-	temperature = sign * word(bits[2], bits[3]) * 0.1;
+	temperature = sign * int(word(bits[2], bits[3])) * 10;
 
-	// TEST CHECKSUM
-	uint8_t sum = bits[0] + bits[1] + bits[2] + bits[3];
-	if (bits[4] != sum) return DHT_ERROR_CHECKSUM;
+	
 
 	return DHT_ERROR_NONE;
 }

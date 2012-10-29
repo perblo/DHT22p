@@ -34,8 +34,8 @@ class DHT22p
 public:
 	DHT22p(uint8_t pin);
 	DHT22p_ERROR_t readData();
-	double humidity;
-	double temperature;
+	int humidity;  // value x 100, two decimal places
+	int temperature;  // värdet *100
 
 private:
 	uint8_t _pin;
